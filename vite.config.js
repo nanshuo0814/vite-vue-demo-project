@@ -21,7 +21,7 @@ export default defineConfig({
       external: ["@vueuse/core"],
       output: {
         globals: {
-          "@vueuse/core": "VueUseCore" // 将"@vueuse/core"映射为全局变量VueUseCore
+          "@vueuse/core": "/node_modules/@vueuse/core" // 将"@vueuse/core"映射为全局变量VueUseCore
         }
       }
     }
