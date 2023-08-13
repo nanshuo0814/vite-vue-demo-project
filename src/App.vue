@@ -1,30 +1,33 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <Suspense>
+      <template #default>
+        <component :is="resolvedLayoutComponent">
+          <router-view></router-view>
+        </component>
+      </template>
+      <template #fallback>
+        <Loading />
+      </template>
+    </Suspense>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script setup>
+import { computed, defineAsyncComponent } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const resolvedLayoutComponent = computed(() => {
+  if (route.meta.layout === "blank") {
+    return "div";
+  } else {
+    // 在动态导入语句上添加 /* @vite-ignore */ 注释
+    return defineAsyncComponent(() =>
+      import(/* @vite-ignore */ `./components/CommonLayout.vue`)
+    );
+  }
+});
+</script>
+
+<style lang="scss" scoped></style>
