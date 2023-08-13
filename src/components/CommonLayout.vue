@@ -63,8 +63,8 @@ const isAdmin = computed(() => {
   }
 });
 const state = reactive({
-  xiaoyuer: "../../public/PhaseOne/profile.jpg",
-  yuzai: "../../public/PhaseOne/xiaoyuer.png",
+  xiaoyuer: "PhaseOne/profile.jpg",
+  yuzai: "PhaseOne/xiaoyuer.png",
 });
 const avatar = ref(isAdmin.value ? state.xiaoyuer : state.yuzai);
 onMounted(() => {
