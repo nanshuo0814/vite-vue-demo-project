@@ -16,4 +16,9 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
+  build: {
+    rollupOptions: {
+      external: ["@vueuse/core"],
+    },
+  },
 });
