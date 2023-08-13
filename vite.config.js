@@ -19,11 +19,6 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: ["@vueuse/core"],
-      output: {
-        globals: {
-          "@vueuse/core": "/node_modules/@vueuse/core" // 将"@vueuse/core"映射为全局变量VueUseCore
-        }
-      }
-    }
-  }
+    },
+  },
 });
