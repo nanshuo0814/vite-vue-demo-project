@@ -5,7 +5,7 @@ import VueCookie from "vue-cookie";
 import { ElMessage } from "element-plus";
 import CryptoJS from "crypto-js";
 import accountInfo from "../store/accountInfo";
-import { useDark } from "/node_modules/@vueuse/core";
+import { useDark } from "@vueuse/core";
 const isDark = useDark();
 
 // 返回登录按钮的禁用情况
