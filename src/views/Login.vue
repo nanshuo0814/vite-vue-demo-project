@@ -182,8 +182,10 @@ onMounted(() => {
   formData.username = VueCookie.get("xiaoyuhao");
   formData.password = VueCookie.get("xiaoyuma");
 });
-const wxQRCodeJPG = "../../src/assets/wxQRCode.jpg";
-const wxQRCodeJPGList = ["../../src/assets/wxQRCode.jpg"];
+const wxQRCodeJPG = "	https://www.xiaoguang.eu.org/PhaseThree/wxQRCode.jpg";
+const wxQRCodeJPGList = [
+  "https://www.xiaoguang.eu.org/PhaseThree/wxQRCode.jpg",
+];
 </script>
 
 <template>
