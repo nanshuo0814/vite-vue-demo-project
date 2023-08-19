@@ -120,7 +120,7 @@ const checkUsernamePwd = () => {
   const usernameInput = formData.username;
   const passwordInput = formData.password;
   let encryptXiaoyuma = "";
-  const ma = VueCookie.get("xiaoyuma"); 
+  const ma = VueCookie.get("xiaoyuma");
   // 没有cookie的情况,加密
   if (!ma || passwordInput !== ma) {
     encryptXiaoyuma = CryptoJS.MD5(passwordInput).toString(); // 用户输入的小鱼码经过加密的密码
@@ -157,148 +157,175 @@ onMounted(() => {
   formData.username = VueCookie.get("xiaoyuhao");
   formData.password = VueCookie.get("xiaoyuma");
 });
+const wxQRCodeJPG = "../../src/assets/wxQRCode.jpg";
+const wxQRCodeJPGList = ["../../src/assets/wxQRCode.jpg"];
 </script>
 
 <template>
-  <div class="login-container">
-    <div class="header-box">
-      <div class="title-box">
-        <span class="fish" style="width: 50px; height: 50px"></span>
-        <span class="title">小鱼儿の🏠</span>
+  <div container>
+    <div class="login-container">
+      <div class="header-box">
+        <div class="title-box">
+          <span class="fish" style="width: 50px; height: 50px"></span>
+          <span class="title">小鱼儿の🏠</span>
+        </div>
+        <el-switch
+          style="position: absolute; right: 0; margin: 20px"
+          v-model="isDark"
+        />
       </div>
-      <el-switch
-        style="position: absolute; right: 0; margin: 20px"
-        v-model="isDark"
-      />
-    </div>
-    <el-divider style="margin: 0" />
-    <div class="login-box">
-      <img src="../../public/PhaseOne/xiaoyuer.png" class="login-left-box" />
-      <div class="login-right-box">
-        <div class="login-form">
-          <div class="login-title">小鱼儿の藏宝地</div>
-          <el-form :model="formData" :rules="rules" ref="formDataRef">
-            <el-form-item prop="username">
-              <el-input
-                class="input"
-                placeholder="请输入你的小鱼号"
-                v-model="formData.username"
-                size="large"
-                clearable
-              >
-                <template #prefix>
-                  <span class="input">🏠</span>
-                </template>
-                <template #append>
-                  <el-popover
-                    placement="top-start"
-                    :width="150"
-                    trigger="hover"
-                  >
-                    <h4>游客小鱼号体验号</h4>
-                    小鱼号: yuzai<br />
-                    小鱼码: yuzai123
-                    <template #reference>
-                      <el-button><el-icon><QuestionFilled /></el-icon></el-button>
+      <el-divider style="margin: 0" />
+      <div class="login-box">
+        <img src="../../public/PhaseOne/xiaoyuer.png" class="login-left-box" />
+        <div class="login-right-box">
+          <div class="login-form">
+            <div class="login-title">小鱼儿の藏宝地</div>
+            <el-form :model="formData" :rules="rules" ref="formDataRef">
+              <el-form-item prop="username">
+                <el-input
+                  class="input"
+                  placeholder="请输入你的小鱼号"
+                  v-model="formData.username"
+                  size="large"
+                  clearable
+                >
+                  <template #prefix>
+                    <span class="input">🏠</span>
+                  </template>
+                  <template #append>
+                    <el-popover
+                      placement="top-start"
+                      :width="225"
+                      trigger="hover"
+                    >
+                      <!-- <h4>游客小鱼号体验号</h4>
+                      小鱼号: yuzai<br />
+                      小鱼码: yuzai123 -->
+                      <el-image
+                        style="width: 200px; height: 274px"
+                        :src="wxQRCodeJPG"
+                        :zoom-rate="1.2"
+                        :preview-src-list="wxQRCodeJPGList"
+                        fit="cover"
+                      />
+                      <template #reference>
+                        <el-button
+                          ><el-icon><QuestionFilled /></el-icon
+                        ></el-button>
+                      </template>
+                    </el-popover>
+                  </template>
+                </el-input>
+              </el-form-item>
+              <el-form-item prop="password">
+                <el-input
+                  class="input"
+                  :type="inputType"
+                  placeholder="请输入你的小鱼码"
+                  v-model="formData.password"
+                  size="large"
+                  clearable
+                >
+                  <template #prefix>
+                    <span class="input">🔒</span>
+                  </template>
+                  <template #append>
+                    <el-popover placement="top" :width="150" trigger="hover">
+                      <h5 class="center" v-show="!showPwd">点击查看小鱼码</h5>
+                      <h5 class="center" v-show="showPwd">点击隐藏小鱼码</h5>
+                      <template #reference
+                        ><el-button @click="showPwd = !showPwd">
+                          {{ showPwd ? "👀" : "🙈" }}
+                        </el-button>
+                      </template>
+                    </el-popover>
+                  </template>
+                </el-input>
+              </el-form-item>
+              <el-form-item prop="code">
+                <el-input
+                  class="input"
+                  placeholder="请输入小鱼验证码"
+                  v-model="formData.code"
+                  size="large"
+                  @keyup.enter="login"
+                  clearable
+                >
+                  <template #prefix>
+                    <span class="input">🔑</span>
+                  </template>
+                  <template #append>
+                    <el-popover placement="top" :width="150" trigger="hover">
+                      <h5 class="center">点击刷新小鱼验证码</h5>
+                      <template #reference
+                        ><el-button @click="changeCaptcha">
+                          {{ captcha }}
+                        </el-button>
+                      </template>
+                    </el-popover>
+                  </template>
+                </el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-checkbox v-model="formData.rememberMe" :true-label="1"
+                  >记住小鱼号</el-checkbox
+                >
+                <div style="position: absolute; right: 0; font-weight: 500">
+                  <el-tooltip placement="top" effect="light">
+                    网站二维码
+                    <template #content>
+                      <el-image
+                        style="width: 200px; height: 200px"
+                        src="../../src/assets/xiaoyuerQRCode.png"
+                      />
                     </template>
-                  </el-popover>
-                </template>
-              </el-input>
-            </el-form-item>
-            <el-form-item prop="password">
-              <el-input
-                class="input"
-                :type="inputType"
-                placeholder="请输入你的小鱼码"
-                v-model="formData.password"
-                size="large"
-                clearable
-              >
-                <template #prefix>
-                  <span class="input">🔒</span>
-                </template>
-                <template #append>
-                  <el-popover placement="top" :width="150" trigger="hover">
-                    <h5 class="center" v-show="!showPwd">点击查看小鱼码</h5>
-                    <h5 class="center" v-show="showPwd">点击隐藏小鱼码</h5>
-                    <template #reference
-                      ><el-button @click="showPwd = !showPwd">
-                        {{ showPwd ? "👀" : "🙈" }}
-                      </el-button>
-                    </template>
-                  </el-popover>
-                </template>
-              </el-input>
-            </el-form-item>
-            <el-form-item prop="code">
-              <el-input
-                class="input"
-                placeholder="请输入小鱼验证码"
-                v-model="formData.code"
-                size="large"
-                @keyup.enter="login"
-                clearable
-              >
-                <template #prefix>
-                  <span class="input">🔑</span>
-                </template>
-                <template #append>
-                  <el-popover placement="top" :width="150" trigger="hover">
-                    <h5 class="center">点击刷新小鱼验证码</h5>
-                    <template #reference
-                      ><el-button @click="changeCaptcha">
-                        {{ captcha }}
-                      </el-button>
-                    </template>
-                  </el-popover>
-                </template>
-              </el-input>
-            </el-form-item>
-            <el-form-item>
-              <el-checkbox v-model="formData.rememberMe" :true-label="1"
-                >记住小鱼号</el-checkbox
-              >
-            </el-form-item>
-            <el-form-item>
-              <el-button
-                style="width: 100%"
-                size="large"
-                @click="login"
-                :disabled="!isSubmit"
-                :class="{ 'submit-btn': isSubmit, 'unSubmit-btn': !isSubmit }"
-              >
-                登录
-              </el-button>
-            </el-form-item>
-            <div class="flex justify-space-between mb-4 flex-wrap gap-4">
-              <el-checkbox v-model="formData.respect" :true-label="1">
-                拥护且同意小鱼儿🏠の
+                  </el-tooltip>
+                </div>
+              </el-form-item>
+              <el-form-item>
                 <el-button
-                  style="margin-left: -12px"
-                  type="primary"
-                  link
-                  @click="router.push('/agreement')"
-                  >《用户协议》</el-button
+                  style="width: 100%"
+                  size="large"
+                  @click="login"
+                  :disabled="!isSubmit"
+                  :class="{ 'submit-btn': isSubmit, 'unSubmit-btn': !isSubmit }"
                 >
-                <span style="margin: 0 -7px">和</span>
-                <el-button type="primary" link @click="router.push('/privacy')"
-                  >《隐私政策》</el-button
-                >
-              </el-checkbox>
-            </div>
-          </el-form>
+                  登录
+                </el-button>
+              </el-form-item>
+              <div class="flex justify-space-between mb-4 flex-wrap gap-4">
+                <el-checkbox v-model="formData.respect" :true-label="1">
+                  拥护且同意小鱼儿🏠の
+                  <el-button
+                    style="margin-left: -12px"
+                    type="primary"
+                    link
+                    @click="router.push('/agreement')"
+                    >《用户协议》</el-button
+                  >
+                  <span style="margin: 0 -7px">和</span>
+                  <el-button
+                    type="primary"
+                    link
+                    @click="router.push('/privacy')"
+                    >《隐私政策》</el-button
+                  >
+                </el-checkbox>
+              </div>
+            </el-form>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-box">
-      <div class="footer-title">
-        <div>
-          Copyright © 2023-2024
-          <a href="https://github.com/xiaoyuer-icu/xiaoyuer" target="_blank"
-            >xiaoyuer</a
-          >
+      <div class="footer-box">
+        <div class="footer-title">
+          <div>
+            Copyright © 2023-2024
+            <a href="https://github.com/xiaoyuer-icu/xiaoyuer" target="_blank"
+              >xiaoyuer</a
+            >
+          </div>
+          <div class="fish" style="margin-left: 22px"></div>
         </div>
-        <div class="fish" style="margin-left: 22px"></div>
       </div>
     </div>
   </div>
@@ -387,20 +414,19 @@ onMounted(() => {
         color: #34a672;
         font-size: 22px;
       }
+      .fish {
+        width: 22px;
+        height: 22px;
+        background: url(../assets/yu.png) center/cover no-repeat; /* 替换为你的鱼图 url */
+        animation: swim 4s linear infinite;
+        transform-style: preserve-3d;
+      }
+      .center {
+        text-align: center;
+      }
     }
   }
 }
-.fish {
-  width: 22px;
-  height: 22px;
-  background: url(../assets/yu.png) center/cover no-repeat; /* 替换为你的鱼图 url */
-  animation: swim 4s linear infinite;
-  transform-style: preserve-3d;
-}
-.center {
-  text-align: center;
-}
-
 @keyframes swim {
   0% {
     transform: translateX(0px) rotateY(0deg);
@@ -419,6 +445,65 @@ onMounted(() => {
   }
   100% {
     transform: translateX(0px) rotateY(0deg);
+  }
+}
+@media screen and (max-width: 960px) {
+  .login-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .login-box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .login-left-box {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1200px) {
+  .login-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .login-box {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .footer-box {
+      margin: 0 auto;
+      width: 720px;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 2560px) {
+  .login-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    .login-box {
+      width: 1200px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .login-left-box {
+      display: inline-block;
+    }
+
+    .footer-box {
+      margin: 0 auto;
+      width: 720px;
+    }
   }
 }
 </style>

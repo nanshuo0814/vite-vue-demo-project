@@ -4,6 +4,75 @@ This template should help get you started developing with Vue 3 in Vite. The tem
 
 While this project uses Vue.js, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
+# Git工具的使用
+Git是一款非常流行的分布式版本控制系统，以下是一些常用的Git命令：
+
+1. git init：初始化一个新的Git仓库。
+2. git clone <仓库地址>：克隆（下载）一个远程仓库到本地。
+3. git add <文件名>：将文件添加到暂存区。
+4. git commit -m "提交描述"：将暂存区的文件提交到版本库，并添加提交描述。
+5. git status：查看工作区和暂存区的状态。
+6. git log：查看提交日志。
+7. git pull：从远程仓库拉取最新代码。
+8. git push：推送本地提交到远程仓库。
+9. git branch：查看本地分支列表。
+10. git checkout <分支名>：切换到指定分支。
+11. git merge <分支名>：合并指定分支到当前分支。
+12. git remote add <别名> <仓库地址>：关联远程仓库。
+13. git remote -v：查看远程仓库列表。
+14. git diff：查看工作区和暂存区的差异。
+15. git reset <文件名>：将文件从暂存区移出。
+
+要将本地更新同步到GitHub仓库，可以按照以下命令步骤执行：
+
+1. 首先，确保你已经将GitHub仓库克隆到了本地。如果还没有克隆，可以使用以下命令：
+
+   ```
+   git clone <仓库地址>
+   ```
+
+2. 进入克隆的本地仓库目录：
+
+   ```
+   cd <仓库目录>
+   ```
+
+3. 在进行任何修改之前，先确保你在主分支上（一般为`master`或`main`分支）：
+
+   ```
+   git checkout <主分支名称>
+   ```
+
+4. 然后，进行你需要的修改，比如编辑文件、添加新文件等。
+
+5. 当你完成修改后，可以通过以下命令将修改添加到暂存区：
+
+   ```
+   git add .
+   ```
+
+   这里使用`.`来表示所有修改的文件。如果你只想添加某个特定的文件，可以将`.`替换为文件名。
+
+6. 然后，提交你的修改到版本库，并添加提交描述：
+
+   ```
+   git commit -m "提交描述"
+   ```
+
+7. 最后，使用以下命令将本地更新推送到GitHub远程仓库：
+
+   ```
+   git push origin <主分支名称>
+   ```
+
+   这里使用`origin`表示远程仓库的别名，`<主分支名称>`表示你的主分支名称（如`master`或`main`）。
+
+执行上述步骤后，你的本地更新将会被推送到GitHub仓库，并与远程仓库同步。注意，如果你在推送之前有其他人对仓库进行了修改并且已经推送到远程仓库，你需要先执行`git pull`命令来拉取最新的代码，再进行推送操作，以免出现冲突。
+
+这只是一些常见的Git命令，Git还有更多强大的功能和命令，建议参考官方文档或其他教程来学习更多。
+
+
+
 # xiaoyuer小网站项目
 
 本小网站(小鱼儿)采用纯前端Vue+Vite的框架搭建,通过[Vercel](https://vercel.com/)网站部署。
@@ -43,7 +112,7 @@ npm run dev
 ### 用到的技术和工具
 
 ```
-版本: Vue: 3.3.4 + Vite: 4.4.8 + npm: 9.8.1 + pnpm: 8.0.0 + Git: 2.41.0.windows.1 
+版本: Vue: 3.3.4 + Vite: 4.4.9 + npm: 8.19.14 + pnpm: 7.33.6 + Git: 2.41.0.windows.1 
 ```
 
 ## 第二阶段(2023/08/06)
@@ -74,7 +143,7 @@ npm run dev
 用到的技术
 
 - "crypto-js": "^4.1.1" ,用于MD5加密
-- "element-plus": "^2.3.8",饿了么组件库
+- "element-plus": "^2.3.9",饿了么组件库
 - "vue-cookie": "^1.1.4",使用VueCookie的api
 - vue-router": "^4.2.4" ,路由
 - "sass": "^1.64.2", css代码的嵌套写法
@@ -98,44 +167,31 @@ ps:
 
 ![404](/public/PhaseTwo/404View.png)
 
-## 第三阶段(2023/08/07)
+## 第三阶段(2023/08/19)
 
-主要写网站的首页(Index.vue),修改了网站访问的首地址(默认是Index.vue,通过修改了router路由配置),更改了路由的权限等等,然后将login.vue页面的部分css代码(适应电脑或手机的尺寸代码)移动到style.css里面(主要是全局要用到的,避免代码的冗余),还有导航栏和页尾页进行了整合(公共的代码块),
+主要写网站的首页(Index.vue)和CommonLayout.vue通用的组件(导航栏和页尾页进行了整合(公共的代码块),整合成一个组件通用,优化前,全部在一个文件里900行代码,很多重复赘余,往后对其进行拆分),还对屏幕进行了适应(手机和电脑),,其中手机端由于导航栏无法容纳太多的内容,所以对其进行了整合在"抽屉"里(element-Plus的组件库el-drawer,里面的标题里的内容也使用了"抽屉",更加的人性化),然后修改了网站访问的首地址(默认是Index.vue,通过修改了router路由配置),更改了路由的权限等等...
 
 ### 首页
 
-# 遇到棘手的bug
+#### PC端
 
-一、遇到的问题似乎与 pnpm-lock.yaml 文件与 package.json 文件不同步有关。这个问题通常是由于 package.json 文件和实际的锁定文件存在差异造成的。ps: 在我第二阶段提交代码的时候遇到的bug
-为了解决这个问题，我可以尝试以下步骤：
+未登录的情况
+![index](/public/PhaseThree/image.png)
 
-ps: 自己搞了很久,主要是没经验,知道是版本问题,不知道怎么解决,而且一开始我自己电脑并没有安装`pnpm`,然后通过自己的不断摸索(在网上找没有解决方案,最后在ChatGPT官网提问得到了下面这个最终方案),最终找到了解决方案,就是版本不一致的问题,其实这个bug很简单,自己没经验不知道从何下手,其实就运行下面的第一条命令就解决了,这也让我接触到了`pnpm`这个工具,也算有收获吧
+登录之后
+![Alt text](/public/PhaseThree/image-1.png)
+![Alt text](/public/PhaseThree/image-6.png)
 
-更新 pnpm 的锁定文件：
-运行以下命令，将 pnpm-lock.yaml 文件与 package.json 同步更新：
+#### 手机端
 
-```
-pnpm update
-```
+未登录情况
 
-清除 pnpm 缓存：
-有时候问题可能是由于损坏或过时的 pnpm 缓存引起的。尝试使用以下命令清除缓存：
+![Alt text](/public/PhaseThree/image-2.png)
+![Alt text](/public/PhaseThree/image-4.png)
 
-```
-pnpm clear-cache
-```
+登录之后
 
-不使用冻结锁定文件安装依赖项：
-如错误信息所建议的，你可以尝试在安装依赖项时不使用冻结锁定文件，运行以下命令：
+![Alt text](/public/PhaseThree/image-3.png)
+![Alt text](/public/PhaseThree/image-5.png)
 
-```
-pnpm install --no-frozen-lockfile
-```
-
-这将在安装依赖项时不遵循锁定文件，可能能够解决某些情况下的问题。
-
-确保使用正确的 pnpm 版本：
-确保你使用的 pnpm 版本与锁定文件版本兼容。如果你最近更新了 pnpm，可能需要确认其与当前项目设置的兼容性。
-尝试完成这些步骤后，再次运行构建。如果问题仍然存在，可能有其他因素影响，需要进一步调查以找到问题的根本原因。此外，查阅项目文档和支持论坛，了解与 pnpm 和 Vercel 集成相关的特定问题可能会有所帮助。
-
-二、...
+## 第四阶段(2023/08/20)
