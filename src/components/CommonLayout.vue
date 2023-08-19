@@ -209,8 +209,8 @@ const dev = ref(false);
 const school = ref(false);
 const others = ref(false);
 const utils = ref(false);
-const wxQRCodeJPG = "../../src/assets/wxQRCode.jpg";
-const wxQRCodeJPGList = ["../../src/assets/wxQRCode.jpg"];
+const wxQRCodeJPG = "https://www.xiaoguang.eu.org/PhaseThree/wxQRCode.jpg";
+const wxQRCodeJPGList = ["https://www.xiaoguang.eu.org/PhaseThree/wxQRCode.jpg"];
 </script>
 
 <template>

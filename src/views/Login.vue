@@ -2,7 +2,7 @@
 import { reactive, ref, computed, onMounted } from "vue";
 import router from "../router";
 import VueCookie from "vue-cookie";
-import { ElMessage } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 import CryptoJS from "crypto-js";
 import accountInfo from "../store/accountInfo";
 import { useDark } from "@vueuse/core";
@@ -57,6 +57,31 @@ const generateCaptcha = () => {
 };
 // 登录函数
 const login = () => {
+  if (!formData.respect) {
+    ElMessageBox.confirm(
+      "你是否同意小鱼儿🏠の用户协议和隐私协议?",
+      "温馨提示",
+      {
+        distinguishCancelAndClose: true,
+        confirmButtonText: "同意",
+        cancelButtonText: "取消",
+      }
+    )
+      .then(() => {
+        formData.respect = true;
+        ElMessage({
+          type: "info",
+          message: "你已成功勾选!",
+        });
+      })
+      .catch(() => {
+        ElMessage({
+          type: "warning",
+          message: "你已取消了,需要同意才可以进行下一步操作!",
+        });
+      });
+    return;
+  }
   verifyCaptcha(); // 调用验证码验证函数
   // 避免验证码和小鱼号和小鱼码同时报错
   if (captchaPassed.value) {
@@ -84,7 +109,7 @@ const login = () => {
     // 存储用户token,过期时间为半小时
     const currentTime = new Date();
     console.log(
-      `${formData.username}登录成功!  (${currentTime.toLocaleString()})`
+      `${formData.username}用户登录成功!  (${currentTime.toLocaleString()})`
     );
     const LoginInfo = {
       username: formData.username,
@@ -274,9 +299,9 @@ const wxQRCodeJPGList = ["../../src/assets/wxQRCode.jpg"];
                   <el-tooltip placement="top" effect="light">
                     网站二维码
                     <template #content>
-                      <el-image
+                      <img
                         style="width: 200px; height: 200px"
-                        src="../../src/assets/xiaoyuerQRCode.png"
+                        src="../../public/PhaseThree/xiaoyuerQRCode.png"
                       />
                     </template>
                   </el-tooltip>

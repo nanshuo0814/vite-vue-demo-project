@@ -115,7 +115,7 @@ router.beforeEach((to, from, next) => {
   if (!token && to.path != "/login" && to.meta.authorize && to.path != "/index") {
     router.push("/login");
     ElMessage({
-      message: `登录状态已过期或无权限查看,请联系xiaoyuer或重新登录!!!`,
+      message: `登录状态已过期或无权限查看,请联系管理员xiaoyuer或重新登录!!!`,
       type: "warning",
     });
   } else if (token) {

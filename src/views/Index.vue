@@ -1,5 +1,4 @@
 <script setup>
-const url = "../../src/assets/index.svg";
 const goVite = () => {
   window.open("https://cn.vitejs.dev/", "_blank");
 };
@@ -41,7 +40,7 @@ const goElment = () => {
       </div>
     </div>
     <div class="image-container">
-      <el-image class="img" :src="url" :zoom-rate="1.2" fit="cover" />
+      <img class="img" src="../../public/PhaseThree/index.svg" />
     </div>
   </div>
   <div></div>
