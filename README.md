@@ -6,22 +6,51 @@ While this project uses Vue.js, Vite supports many popular JS frameworks. [See a
 
 # Git工具的使用
 Git是一款非常流行的分布式版本控制系统，以下是一些常用的Git命令：
-
-1. git init：初始化一个新的Git仓库。
-2. git clone <仓库地址>：克隆（下载）一个远程仓库到本地。
-3. git add <文件名>：将文件添加到暂存区。
-4. git commit -m "提交描述"：将暂存区的文件提交到版本库，并添加提交描述。
-5. git status：查看工作区和暂存区的状态。
-6. git log：查看提交日志。
-7. git pull：从远程仓库拉取最新代码。
-8. git push：推送本地提交到远程仓库。
-9. git branch：查看本地分支列表。
-10. git checkout <分支名>：切换到指定分支。
-11. git merge <分支名>：合并指定分支到当前分支。
-12. git remote add <别名> <仓库地址>：关联远程仓库。
-13. git remote -v：查看远程仓库列表。
-14. git diff：查看工作区和暂存区的差异。
-15. git reset <文件名>：将文件从暂存区移出。
+```
+git init：初始化一个新的Git仓库。
+```
+```
+git clone <仓库地址>：克隆（下载）一个远程仓库到本地。
+```
+```
+git add <文件名>：将文件添加到暂存区。
+```
+```
+git commit -m "提交描述"：将暂存区的文件提交到版本库，并添加提交描述。
+```
+```
+git status：查看工作区和暂存区的状态。
+```
+```
+git log：查看提交日志。
+```
+```
+git pull：从远程仓库拉取最新代码。
+```
+```
+git push：推送本地提交到远程仓库。
+```
+```
+git branch：查看本地分支列表。
+```
+```
+git checkout <分支名>：切换到指定分支。
+```
+```
+git merge <分支名>：合并指定分支到当前分支。
+```
+```
+git remote add <别名> <仓库地址>：关联远程仓库。
+```
+```
+git remote -v：查看远程仓库列表。
+```
+```
+git diff：查看工作区和暂存区的差异。
+```
+```
+git reset <文件名>：将文件从暂存区移出。
+```
 
 要将本地更新同步到GitHub仓库，可以按照以下命令步骤执行：
 
