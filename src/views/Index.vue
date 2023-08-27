@@ -10,7 +10,7 @@ const openLink = (url) => {
 const resources = [
   {
     name: "Vite",
-    imgSrc: "../../src/assets/Vite.png",
+    imgSrc: "public/PhaseOne/Vite.png",
     link: "https://cn.vitejs.dev/",
     color: "orange",
     width: "50px",
@@ -18,7 +18,7 @@ const resources = [
   },
   {
     name: "Vue",
-    imgSrc: "../../src/assets/Vue.png",
+    imgSrc: "public/PhaseOne/Vue.png",
     link: "https://cn.vuejs.org/",
     color: "rgb(64, 226, 64)",
     width: "60px",
@@ -26,7 +26,7 @@ const resources = [
   },
   {
     name: "Element Plus",
-    imgSrc: "../../src/assets/element-plus-logo.svg",
+    imgSrc: "public/PhaseOne/element-plus-logo.svg",
     link: "https://element-plus.gitee.io/zh-CN/",
     width: "150px",
     height: "100px",
