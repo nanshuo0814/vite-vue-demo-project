@@ -10,8 +10,8 @@
 </template>
 
 <script setup>
-import errorCode from '../../utils/errorCode';
-import router from '../../router';
+import errorCode from '@/utils/errorCode';
+import router from '@/router';
 const goBack = () => window.history.back();
 const msg = errorCode['401']
 const goLogin = () => router.push('/login')
@@ -33,13 +33,11 @@ const goLogin = () => router.push('/login')
 h1 {
   font-size: 8rem;
   margin: 0;
-  color: #333;
 }
 
 p {
   font-size: 2rem;
   margin-top: 0;
-  color: #666;
 }
 
 button {

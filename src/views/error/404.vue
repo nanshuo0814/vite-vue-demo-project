@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import errorCode from '../../utils/errorCode';
+import errorCode from '@/utils/errorCode';
 const goBack = () => window.history.back();
 const msg = errorCode['404']
 </script>
@@ -30,13 +30,11 @@ const msg = errorCode['404']
 h1 {
     font-size: 8rem;
     margin: 0;
-    color: #333;
 }
 
 p {
     font-size: 2rem;
     margin-top: 0;
-    color: #666;
 }
 
 button {

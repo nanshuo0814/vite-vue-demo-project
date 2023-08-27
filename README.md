@@ -223,4 +223,5 @@ ps:
 ![Alt text](/public/PhaseThree/image-3.png)
 ![Alt text](/public/PhaseThree/image-5.png)
 
-## 第四阶段(2023/08/20)
+## 第四阶段(2023/08/27)
+这次更新的内容主要是对一些代码整合和优化,首先进行了登录页(Login.vue)和公共的组件库(CommonLayout.vue)的代码优化,减少了代码的冗余,将他们分为多个组件("一父多子"),进行拆分模块,以便更好地理解某个模块的功能和结构,更好方便的进行代码的管理和更新,还添加了Pinia状态管理库来管理数据(登录信息等等),同时也封装了Element-plus的ElMessageBox和ElMessage组件库,和封装了VueCookie的api封装等等工具类,更加详细的内容请自行查看代码!!!
