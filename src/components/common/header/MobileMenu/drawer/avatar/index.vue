@@ -62,7 +62,7 @@ const logout = () => {
     </div>
     <div class="right-section">
       <!-- 切换深浅色模式开关 -->
-      <span class="dark"><dark size="large"/></span>
+      <dark/>
       <!-- 显示登录提示或博客链接 -->
       <div v-if="status.notLogin" class="notLogin">←点击左边头像去登录</div>
       <el-button
@@ -112,17 +112,14 @@ const logout = () => {
     }
 
     .admin-home {
-      margin-bottom: 10px;
+      margin-bottom: 6px;
+      margin-top: 8px;
       font-size: 18px;
     }
 
     .logout {
-      margin-bottom: 22px;
+      // margin-bottom: 0px;
       font-size: 18px;
-    }
-
-    .dark {
-      margin-bottom: 5px !important;
     }
 
     .notLogin {

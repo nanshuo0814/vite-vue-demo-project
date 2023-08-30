@@ -20,12 +20,12 @@ function formatTimeDifference() {
   const hours = Math.abs(Math.floor((timeDifference / (1000 * 60 * 60)) % 24));
   const minutes = Math.abs(Math.floor((timeDifference / (1000 * 60)) % 60));
   const seconds = Math.abs(Math.floor((timeDifference / 1000) % 60));
-  return `${days} 天 ${hours} 小时 ${minutes} 分钟 ${seconds} 秒`;
+  return `${days}天${hours}小时${minutes}分钟${seconds}秒`;
 }
 </script>
 
 <template>
-  <el-footer>
+  
     <div class="footer-box">
       <!-- 页脚标题 -->
       <div class="footer-title">
@@ -39,19 +39,21 @@ function formatTimeDifference() {
         <!-- 小鱼图标 -->
         <div class="fish"></div>
       </div>
+      <div class="time-heart">
+        <!-- 显示运行时间差 -->
+        <div class="time">
+          小鱼居然已
+          <span class="heart-container">
+            <div class="heart"></div>
+          </span>
+          {{ timeDiff }}
+          <!-- 爱心 -->
+        </div>
+      </div>
     </div>
-    <!-- 显示运行时间差 -->
-    <div class="time">本站居然已运行: {{ timeDiff }}</div>
-  </el-footer>
 </template>
 
 <style lang="scss" scoped>
-.time {
-  text-align: center;
-  margin-top: 5px;
-  font-size: 22px;
-}
-
 .footer-box {
   .footer-title {
     font-size: 20px;
@@ -75,6 +77,54 @@ function formatTimeDifference() {
       margin-left: 18px;
     }
   }
+  .time-heart {
+    display: flex;
+    justify-content: center;
+    .time {
+      font-size: 22px;
+      position: relative;
+      text-align: center;
+      margin-top: 5px;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+
+      .heart-container {
+        margin-right: 8px;
+        position: relative;
+        margin-left: 8px; /* 调整爱心与时间的间距 */
+        margin-bottom: -5px;
+        transform: rotate(-45deg);
+        .heart {
+          width: 7px;
+          height: 7px;
+          background: red;
+          position: relative;
+          animation: heartbeat 0.8s infinite;
+        }
+        .heart::before,
+        .heart::after {
+          content: "";
+          position: absolute;
+          width: 7px;
+          height: 7px;
+          background: red;
+          border-radius: 0 50% 50% 0;
+        }
+        .heart::before {
+          border-radius: 50% 50% 0 0;
+          top: -7px;
+          left: 0;
+        }
+
+        .heart::after {
+          border-radius: 0 50% 50% 0;
+          top: 0;
+          left: 7px;
+        }
+      }
+    }
+  }
 }
 
 @keyframes swim {
@@ -95,6 +145,17 @@ function formatTimeDifference() {
   }
   100% {
     transform: translateX(0px) rotateY(0deg);
+  }
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>

@@ -44,7 +44,6 @@ const refreshPage = () => {
     position: absolute;
     font-size: 30px;
     margin: 13px 0px 0px 0px;
-    color: orange;
     font-weight: bolder;
   }
 

@@ -2,7 +2,6 @@
 
 import { defineStore } from "pinia";
 import vc from "@/utils/CookieManager";
-
 import {
   ROLE_INFO,
   ICU_COOKIE_NAME,

@@ -73,10 +73,13 @@ const openLink = (link) => {
         </template>
       </el-dropdown>
     </div>
-    <el-divider class="left-divider" direction="vertical" />
+    <!-- <el-divider class="left-divider" direction="vertical" /> -->
     <!-- 暗黑模式 -->
-    <dark class="dark" />
-    <el-divider class="right-divider" direction="vertical" />
+    <div class="dark">
+      <dark  />
+    </div>
+    
+    <!-- <el-divider class="right-divider" direction="vertical" /> -->
     <!-- 头像 -->
     <profile />
   </div>
@@ -93,7 +96,7 @@ const openLink = (link) => {
   .dark {
     position: absolute;
     right: 68px;
-    margin-top: 6px !important;
+    margin-top: 8px !important;
   }
   .left-divider {
     position: absolute;
@@ -112,33 +115,33 @@ const openLink = (link) => {
     cursor: pointer;
 
     span {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
     }
   }
 
   .others {
     right: 368px;
-    top: 10px;
+    top: 8px;
   }
-
+  
   .program {
     right: 188px;
-    top: 10px;
+    top: 8px;
   }
 
   .resource {
     right: 128px;
-    top: 10px;
+    top: 8px;
   }
 
   .school {
     right: 308px;
-    top: 10px;
+    top: 8px;
   }
 
   .utils {
     right: 248px;
-    top: 10px;
+    top: 8px;
   }
 }
 @media screen and (max-width: 600px) {

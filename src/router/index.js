@@ -21,6 +21,8 @@ const routes = [
       // 需要权限
       isAdmin: true, // 管理员权限
       // isUser: true, // 用户权限
+      // layout: "blank",
+      
     },
   },
   // 首页

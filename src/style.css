@@ -3,3 +3,12 @@
   margin: 0;
   font-family: "楷体";
 }
+/* 暗色主题 */
+html.dark {
+  --theme-color: #39c5bb;
+  --text-bg-hover: rgba(57, 197, 187, 0.7);
+  background-color: #1e1e20;
+}
+.el-popup-parent--hidden {
+  position: fixed;
+}

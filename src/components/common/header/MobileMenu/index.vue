@@ -9,20 +9,20 @@ const drawer = ref(false);
 const openMenu = () => {
   drawer.value = true;
   store.getUserInfo();
-}
+};
 </script>
 
 <template>
   <div class="menu-box">
     <!-- 点击按钮打开抽屉菜单 -->
-    <el-button type="success" @click="openMenu()">
+    <el-button type="success" @click="openMenu()" v-if="!drawer">
       <el-icon size="30"><More /></el-icon>
     </el-button>
-    <el-drawer v-model="drawer" :with-header="false" size="80%">
-      <!-- 菜单区 -->
-      <drawerItems />
-    </el-drawer>
   </div>
+  <el-drawer v-model="drawer" :with-header="false" size="80%">
+    <!-- 菜单区 -->
+    <drawerItems />
+  </el-drawer>
 </template>
 
 <style lang="scss" scoped>

@@ -4,7 +4,6 @@ import PCMenu from "./PCMenu/index.vue";
 import MobileMenu from "./MobileMenu/index.vue";
 </script>
 <template>
-  <el-header>
     <!-- 导航栏盒子 -->
     <div class="header-box">
       <!-- 主页名字和logo -->
@@ -14,7 +13,6 @@ import MobileMenu from "./MobileMenu/index.vue";
       <!-- 手机端菜单和logo -->
       <MobileMenu />
     </div>
-  </el-header>
 </template>
 
 <style lang="scss" scoped>
