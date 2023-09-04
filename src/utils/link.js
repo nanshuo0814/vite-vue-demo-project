@@ -9,6 +9,10 @@ const LINKS = {
   LEETCODE: "https://leetcode.com/",
   NOWCODER: "https://nowcoder.com/",
   
+  // 邮箱
+  GOOGLEEMAIL: "https://mail.google.com/",
+  QQEMAIL: "https://wx.mail.qq.com/",
+
   // 技术论坛和博客
   CSDN: "https://www.csdn.net/",
   
@@ -44,6 +48,8 @@ const LINKS = {
   // 云服务提供商
   TENCENT: "https://cloud.tencent.com/",
   ALIYUN: "https://www.aliyun.com/",
+  MEIGUODIZHI: "https://www.dizhishengcheng.com/",
+  EUORG: "https://nic.eu.org/",
   
   // 代码托管平台
   GITHUB: "https://github.com/",

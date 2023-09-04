@@ -42,6 +42,16 @@ const menuSections = [
         link: LINKS.CHAT_GPT,
         permission: "all",
       },
+      {
+        label: "免费二级域名网站注册(eu.org)",
+        link: LINKS.EUORG,
+        permission: "isAdmin",
+      },
+      {
+        label: "美国地址信息(结合免费域名注册)",
+        link: LINKS.MEIGUODIZHI,
+        permission: "isAdmin",
+      },
     ],
   },
   {
@@ -146,21 +156,31 @@ const menuSections = [
     color: "#909399",
     links: [
       {
-        label: "樱花动漫(动漫,电视剧...)",
+        label: "樱花动漫",
         link: LINKS.YHDM,
         permission: "isUser",
+      },{ label: "CSDN    ", link: LINKS.CSDN, permission: "all" },
+      {
+        label: "QQ邮箱",
+        link: LINKS.QQEMAIL,
+        permission: "all",
       },
       {
-        label: "LeetCode官网(刷题,面试...)",
+        label: "谷歌邮箱",
+        link: LINKS.GOOGLEEMAIL,
+        permission: "all",
+      },
+      {
+        label: "LeetCode",
         link: LINKS.LEETCODE,
         permission: "all",
       },
       {
-        label: "nowcoder官网(题库,招聘...)",
+        label: "nowcoder",
         link: LINKS.NOWCODER,
         permission: "all",
       },
-      { label: "CSDN(专业开发者社区)", link: LINKS.CSDN, permission: "all" },
+      
     ],
   },
 ];
