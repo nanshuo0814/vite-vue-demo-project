@@ -59,6 +59,7 @@ const LINKS = {
   AI: "https://c2.binjie.fun/",
   CHAT_GPT: "http://chat.xiaoguang.eu.org/",
   PANDUOLA: "https://chat.zhile.io/",
+  VERCELCHAGPTPANDORA: "https://chat.ydg.icu/",
   
   // 网络工具
   V2FREE: "https://w1.v2free.net/",

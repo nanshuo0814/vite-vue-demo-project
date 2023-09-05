@@ -18,7 +18,12 @@ const menuSections = [
     class: "resource",
     links: [
       {
-        label: "ChatGPT潘多拉网站(需要账号)",
+        label: "vercel-chatgpt-pandora(需要账号)",
+        link: LINKS.VERCELCHAGPTPANDORA,
+        permission: "isAdmin",
+      },
+      {
+        label: "chatgpt-pandora官网(需要账号)",
         link: LINKS.PANDUOLA,
         permission: "isAdmin",
       },
@@ -159,7 +164,8 @@ const menuSections = [
         label: "樱花动漫",
         link: LINKS.YHDM,
         permission: "isUser",
-      },{ label: "CSDN    ", link: LINKS.CSDN, permission: "all" },
+      },
+      { label: "CSDN    ", link: LINKS.CSDN, permission: "all" },
       {
         label: "QQ邮箱",
         link: LINKS.QQEMAIL,
@@ -180,7 +186,6 @@ const menuSections = [
         link: LINKS.NOWCODER,
         permission: "all",
       },
-      
     ],
   },
 ];

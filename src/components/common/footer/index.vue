@@ -38,7 +38,7 @@ function formatTimeDifference() {
         </div>
         <!-- 小鱼图标 -->
         <div class="fish"></div>
-      </div>
+      </div>  
       <div class="time-heart">
         <!-- 显示运行时间差 -->
         <div class="time">
