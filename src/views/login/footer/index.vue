@@ -5,7 +5,7 @@
     <div class="footer-title">
       <div>
         Copyright © 2023-2024
-        <a href="https://github.com/xiaoyuer-icu/xiaoyuer" target="_blank"
+        <a href="https://github.com/ixiaoyuer/xiaoyuer-vite-vue" target="_blank"
           >xiaoyuer</a
         >
       </div>
