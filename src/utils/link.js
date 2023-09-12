@@ -34,6 +34,7 @@ const LINKS = {
   
   // 开发平台和资源
   VERCEL: "https://vercel.com/",
+  ZEABUR: "https://zeabur.com/zh-CN",
   UNDRAW: "https://undraw.co/",
   ICONFONT: "https://www.iconfont.cn/",
   PDAI: "https://pdai.tech/",

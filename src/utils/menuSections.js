@@ -67,8 +67,13 @@ const menuSections = [
     color: "#e6a23c",
     links: [
       {
-        label: "Vercel静态代码部署平台",
+        label: "Vercel前端代码部署平台",
         link: LINKS.VERCEL,
+        permission: "isAdmin",
+      },
+       {
+        label: "zeabur前后端代码部署平台",
+        link: LINKS.ZEABUR,
         permission: "isAdmin",
       },
       {
