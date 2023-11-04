@@ -7,7 +7,7 @@
         <p>This is some text on the left side.</p>
       </div>
       <div class="right">
-        <img src="https://www.xiaoguang.eu.org/PhaseThree/wxQRCode.jpg" alt="Image">
+        <img src="https://img-blog.csdnimg.cn/img_convert/1eed5de39e16388cde3099bb6eee9e3a.png" alt="Image">
       </div>
     </div>
 
