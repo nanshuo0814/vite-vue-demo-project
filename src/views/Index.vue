@@ -43,7 +43,7 @@ onBeforeMount(() => {
 <template>
   <div class="container">
     <div class="title">
-      <div class="xiaoyuer-title">Xiaoyuer<span>V2.2.2</span></div>
+      <div class="xiaoyuer-title">NanShuo<span>V2.2.2</span></div>
       <div class="other-title">Learning Resource Website</div>
       
       <div class="cards-box">

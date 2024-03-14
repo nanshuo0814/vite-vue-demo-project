@@ -8,7 +8,7 @@ const goBack = () => window.history.back();
         <button @click="goBack">◀ GoBack</button>
         小鱼儿🏠の隐私政策💻
         <span style="font-size: 18px; position: fixed; right: 10px; top: 10px"
-          >更新人名：xiaoyuer</span
+          >更新人名：南烁</span
         >
         <span style="font-size: 18px; position: fixed; right: 10px; top: 35px"
           >更新时间：2023年8月14日</span
@@ -63,9 +63,9 @@ const goBack = () => window.history.back();
         <h5>ps:若您有更好的意见,请放送您的意见至我的邮箱,如下所示👇</h5>
       </el-main>
       <div class="footer-box">
-        <span>Copyright © 2023-2024 xiaoyuer🐟🐱</span>
+        <span>Copyright © 2023-2024 nanshuo🐟🐱</span>
         <span style="top: 50px">
-          🐱(o=^•ェ•)o🐟...上班摸鱼中 &nbsp;&nbsp;📫:ydg_0814@qq.com
+          🐱(o=^•ェ•)o🐟...上班摸鱼中 &nbsp;&nbsp;邮箱📫ydg0814@qq.com
         </span>
       </div>
     </el-container>

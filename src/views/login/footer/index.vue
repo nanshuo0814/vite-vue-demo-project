@@ -5,8 +5,8 @@
     <div class="footer-title">
       <div>
         Copyright © 2023-2024
-        <a href="https://github.com/ixiaoyuer/xiaoyuer-vite-vue" target="_blank"
-          >xiaoyuer</a
+        <a href="https://github.com/nanshuo0814/vite-vue-demo-project" target="_blank"
+          >nanshuo</a
         >
       </div>
       <div class="fish" style="margin-left: 22px"></div>
